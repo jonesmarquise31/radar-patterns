@@ -1,0 +1,12 @@
+{
+  "name": "radar-patterns",
+  "version": "1.0.0",
+  "description": "Production serverless patterns extracted from a live payments and LLM system",
+  "private": false,
+  "type": "commonjs",
+  "engines": { "node": ">=20.0.0" },
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT"
+}
