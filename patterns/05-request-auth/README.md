@@ -20,7 +20,7 @@ rather than an identity.
 support tickets arrive as "it says AUTH-02" instead of "it says error".
 
 **The rate limiter evicts.** The obvious implementation keys a map by IP and
-trims timestamps inside each entry, but never removes the entry — so the map
+trims timestamps inside each entry, but never removes the entry, so the map
 grows with every unique caller for the life of the instance. On a long-lived
 container that is an unbounded memory leak. This one sweeps empty keys and caps
 total key count, and there are tests for both.

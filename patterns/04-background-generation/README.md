@@ -17,9 +17,9 @@ re-fireable by id.
 
 **Model output is untrusted input.** It is asked for JSON and sometimes returns
 JSON wrapped in prose or a fenced block. Parsing strips the fence, takes the
-outermost balanced object, and classifies its failures — `empty_response`,
-`no_json_object`, `invalid_json` — because "it didn't work" is not actionable at
-3am.
+outermost balanced object, and classifies its failures
+(`empty_response`, `no_json_object`, `invalid_json`) because "it didn't
+work" is not actionable at 3am.
 
 **Nothing stays pending.** Every failure branch patches the row to a terminal
 state and alerts. A row stuck in `pending_generation` is a support ticket nobody

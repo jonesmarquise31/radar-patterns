@@ -6,15 +6,15 @@ Payment providers retry webhooks. So do queues, cron runners, and load balancers
 that time out at the wrong moment. Every handler will eventually run twice on the
 same event, and the second run must be a no-op.
 
-**`findOrCreate`** — read by natural key, insert when absent. Simple, and racy
+**`findOrCreate`** reads by natural key and inserts when absent. Simple, and racy
 under concurrency: two simultaneous runs can both read "absent" and both insert.
 Safe only where a unique constraint catches the loser.
 
-**`upsert`** — one round trip, database resolves the conflict via
+**`upsert`** is one round trip where the database resolves the conflict via
 `ON CONFLICT DO UPDATE`. No race window. Preferred wherever a unique constraint
 exists.
 
-**`processOnce`** — a processed-events ledger, for side effects that cannot be
+**`processOnce`** is a processed-events ledger for side effects that cannot be
 made naturally idempotent. Sending an email twice is the failure being
 prevented, and no amount of upserting fixes that.
 

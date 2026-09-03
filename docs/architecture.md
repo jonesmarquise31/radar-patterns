@@ -86,7 +86,7 @@ seconds.
 ## Testing approach
 
 Each module takes its I/O through an injected `deps` object. No network, no
-database, no mock framework — the tests are the specification of the failure
+database, no mock framework, the tests are the specification of the failure
 modes, and they run in under a second.
 
 The tests are written against behavior that matters rather than line coverage:

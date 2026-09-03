@@ -1,7 +1,13 @@
 # Radar Patterns
 
+[![CI](https://github.com/jonesmarquise31/radar-patterns/actions/workflows/ci.yml/badge.svg)](https://github.com/jonesmarquise31/radar-patterns/actions/workflows/ci.yml)
+[![Node 20+](https://img.shields.io/badge/node-20%2B-brightgreen.svg)](https://nodejs.org/)
+[![Tests](https://img.shields.io/badge/tests-60%20passing-brightgreen.svg)](#the-patterns)
+[![Dependencies](https://img.shields.io/badge/dependencies-zero-lightgrey.svg)](#the-patterns)
+[![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
+
 Five production patterns for serverless systems that take payments and run
-model generation, extracted from [Workforce Radar](https://workforceradar.com) —
+model generation, extracted from [Workforce Radar](https://workforceradar.com),
 a live platform with real customers, real Stripe volume, and Claude in the
 request path.
 
@@ -33,7 +39,7 @@ npm test
 ## The through-line
 
 **Refuse rather than guess.** The most expensive class of bug in a payments
-system is not the one that throws — it is the one that returns `200` and writes
+system is not the one that throws. It is the one that returns `200` and writes
 the wrong row. A webhook that cannot determine which product was purchased
 should alert and write nothing. Losing an event is recoverable in minutes.
 A payment silently attached to the wrong product is discovered weeks later by a
@@ -59,7 +65,7 @@ becoming a broken checkout.
 
 This is an extraction, not a mirror of the product repository.
 
-- No classification or scoring logic — that is the proprietary core
+- No classification or scoring logic, the proprietary core
 - No prompts, voice rules, or model instructions
 - No schema, table names, or policy definitions
 - No infrastructure identifiers or credentials of any kind
